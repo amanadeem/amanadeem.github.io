@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="/styles/blog.css">
+
+<div class="grey">
+<div class="jumbotron jumbotron-fluid blue-gradient text-white">
+    <div class="container">
+        <h2>{{ page.title }}</h2>
+        <em>{{ page.date | date_to_string }}</em> &nbsp; - &nbsp;
+        <em>{% include readingTime.html %}</em>
+
+        <div class="post-tag my-1">
+            {% for tag in page.tags %}
+                <a class="badge badge-pill badge-primary" href="/blog/tags#{{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-10">
+            <div id="post" class="card">
+                <div class="card-body">
+                    <div class="page-content">
+                    {{ content }}
+                    </div>
+        
+                    {% include share.html %}
+
+                    {% if page.related %}
+                        <br><hr><br>
+
+                        <h3 class="text-muted"><i>You might also like</i></h3>
+                        <ul>
+                        {% for post in site.posts %}
+                            {% if page.related contains post.id %}
+                                <li><a href="{{post.url}}">{{post.title}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <br><hr><br>
+        
+                    {% include disqus.html %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="sticky-top" style="top: 10px">
+                {% include ad-unit.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+{% if page.highlight %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/agate.min.css">
+<script>hljs.initHighlightingOnLoad();</script>
+{% endif %}
+
+<script src="/scripts/blog.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script src="/scripts/copy-code.js"></script>
+</div>
