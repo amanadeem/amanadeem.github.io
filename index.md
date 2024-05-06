@@ -1,5 +1,5 @@
-Here you can say lots of fun things about your site.
+Hi, My name is Aman.
 
-Maybe say a some things about yourself.
+I will be experimenting on this blog near future. Hope you'll like it.
 
-Or maybe what you plan to blog about.
+Thanks for being there, Peace.
